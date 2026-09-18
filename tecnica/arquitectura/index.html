@@ -1,0 +1,927 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
+    
+    
+      
+        <title>Arquitectura — decisiones estructurales del repositorio - Template AI-Native — Documentación</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#arquitectura-decisiones-estructurales-del-repositorio" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../.." title="Template AI-Native — Documentación" class="md-header__button md-logo" aria-label="Template AI-Native — Documentación" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Template AI-Native — Documentación
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Arquitectura — decisiones estructurales del repositorio
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Cambiar a modo oscuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo oscuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Cambiar a modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Pestañas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Inicio
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../producto/contexto-producto/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Producto
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Técnica
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../usuario/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Usuario
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Template AI-Native — Documentación" class="md-nav__button md-logo" aria-label="Template AI-Native — Documentación" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Template AI-Native — Documentación
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Inicio
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../producto/contexto-producto/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Producto
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Técnica
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usuario/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Usuario
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#decision-fuente-canonica-agentica-y-router-de-modelos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Decisión: fuente canónica agentica y router de modelos
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#decision-validacion-real-de-json-schema-para-agentic" class="md-nav__link">
+    <span class="md-ellipsis">
+      Decisión: validación real de JSON Schema para .agentic/
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#decision-contexto-de-producto-persistente-y-fase-clarify-en-analyst-agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      Decisión: contexto de producto persistente y Fase CLARIFY en analyst-agent
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#decision-motor-de-scripts-en-powershell-plataforma-primaria-windows" class="md-nav__link">
+    <span class="md-ellipsis">
+      Decisión: motor de scripts en PowerShell, plataforma primaria Windows
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#decision-modelo-de-evolucion-del-template-es-snapshot-no-sincronizado" class="md-nav__link">
+    <span class="md-ellipsis">
+      Decisión: modelo de evolución del template es snapshot, no sincronizado
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#decision-enforcement-tecnico-de-develop-sin-branch-protection-nativa" class="md-nav__link">
+    <span class="md-ellipsis">
+      Decisión: enforcement técnico de develop sin branch protection nativa
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#decision-ciclo-de-vida-de-main-creacion-condicionada-a-la-primera-release" class="md-nav__link">
+    <span class="md-ellipsis">
+      Decisión: ciclo de vida de main — creación condicionada a la primera release
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#decision-fundamentos-v2-compatibles-con-v110" class="md-nav__link">
+    <span class="md-ellipsis">
+      Decisión: fundamentos v2 compatibles con v1.1.0
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="arquitectura-decisiones-estructurales-del-repositorio">Arquitectura — decisiones estructurales del repositorio</h1>
+<p><code>AGENTS.md</code> (sección "Reglas de dominio") exige que ningún backend, base
+de datos, integración externa o dependencia de build se incorpore al
+repositorio sin que quede como una decisión explícita en este archivo.</p>
+<p>Este template no fija stack: arranca sin código de producto, solo con el
+circuito agéntico y su motor ejecutable (<code>scripts/*.ps1</code>). Cuando el
+proyecto real que use este template agregue su primera pieza de stack
+(frontend, backend, base de datos, hosting, integración externa),
+documentar acá:</p>
+<ul>
+<li><strong>Qué se agrega</strong> y en qué archivos/carpetas.</li>
+<li><strong>Por qué ahora</strong>: qué feature o necesidad lo dispara.</li>
+<li><strong>Por qué este enfoque y no otro</strong>: alternativas consideradas y motivo
+  del descarte.</li>
+<li><strong>Qué sigue igual</strong>: qué partes del repo no cambian con esta decisión.</li>
+</ul>
+<p>Cada decisión nueva se agrega como una sección propia (<code>## Decisión:
+&lt;título&gt;</code>), sin reescribir ni borrar las anteriores — este documento es
+un historial acumulativo de arquitectura, no un snapshot que se
+sobreescribe.</p>
+<h2 id="decision-fuente-canonica-agentica-y-router-de-modelos">Decisión: fuente canónica agentica y router de modelos</h2>
+<p>Los roles, modelos, fallbacks y MCP del circuito se centralizan en
+<code>.agentic/</code> para evitar tres copias manuales entre Claude Code, Codex y
+OpenCode.</p>
+<ul>
+<li><code>AGENTS.md</code> conserva las reglas compartidas del repo.</li>
+<li><code>.agentic/roles/*.md</code> contiene la definición funcional canónica por rol.</li>
+<li><code>.agentic/agents.json</code> contiene metadatos, permisos y modelos por
+  herramienta.</li>
+<li><code>.agentic/models.json</code> contiene el router mínimo de modelos OpenCode,
+  allowlists, variantes válidas, variables de entorno esperadas y
+  fallbacks autorizados.</li>
+<li><code>.agentic/mcp.json</code> contiene la fuente MCP canónica. Está vacía porque
+  el template no necesita servidores MCP propios todavía.</li>
+<li><code>.agents/skills/</code> es la fuente canónica de skills portables; los mirrors
+  en <code>.claude/skills/</code> y <code>.opencode/skills/</code> se generan si existen skills.</li>
+</ul>
+<p>Los adaptadores generados son <code>.claude/agents/*.md</code>, <code>.codex/config.toml</code>,
+<code>.codex/&lt;role&gt;.config.toml</code>, <code>.mcp.json</code> y <code>opencode.json</code>. Se regeneran
+con <code>scripts/sync-agentic-adapters.ps1</code> y se validan con el mismo script
+en modo <code>-Check</code>.</p>
+<p>El router de modelos se implementa en <code>scripts/resolve-agentic-model.ps1</code>.
+Resuelve el modelo antes de iniciar cada agente, usando primero una
+selección explícita, luego <code>runs/&lt;NN&gt;-&lt;slug&gt;/run.yaml</code> y finalmente el
+default del rol. La variante se valida separada del modelo. Los fallbacks
+no son silenciosos: se registran con motivo en <code>model-routing.jsonl</code> y
+OpenRouter solo se habilita si se declara explícitamente.</p>
+<p>La decisión no introduce backend, base de datos, servicio externo nuevo ni
+dependencia de build. Solo agrega configuración, scripts PowerShell y
+tests del circuito.</p>
+<h2 id="decision-validacion-real-de-json-schema-para-agentic">Decisión: validación real de JSON Schema para <code>.agentic/</code></h2>
+<p><code>.agentic/agents.json</code> y <code>.agentic/models.json</code> declaraban <code>$schema</code>
+apuntando a <code>.agentic/schemas/agents.schema.json</code> y
+<code>.agentic/schemas/models.schema.json</code>, pero ese directorio no existía:
+la referencia estaba rota y ningún test validaba la forma real de esos
+archivos ni la del manifest de Milestone (<code>work-unit.json</code>).</p>
+<ul>
+<li><strong>Qué se agrega</strong>: <code>.agentic/schemas/agents.schema.json</code>,
+  <code>.agentic/schemas/models.schema.json</code> y
+  <code>.agentic/schemas/work-unit.schema.json</code> (JSON Schema Draft 2020-12
+  real, no ornamental), más la dependencia de test <code>jsonschema</code> (Python,
+  fijada en <code>requirements-dev.txt</code> con el mismo criterio <code>&gt;=</code> que
+  <code>pytest</code>) usada exclusivamente por
+  <code>tests/test_agentic_schemas.py</code> para validar <code>.agentic/agents.json</code>,
+  <code>.agentic/models.json</code> y un manifest de Milestone real contra sus
+  schemas respectivos, con casos positivos y negativos por schema.</li>
+<li><strong>Por qué ahora</strong>: la feature <code>01-code-reviewer-y-sdd</code> corrige el
+  <code>$schema</code> roto detectado en auditoría y formaliza el contrato de estos
+  tres archivos JSON del propio circuito agéntico.</li>
+<li><strong>Por qué este enfoque y no otro</strong>: escribir un validador JSON Schema
+  artesanal sin dependencia externa era más riesgo (reinventar un motor
+  de validación) que agregar una librería de testing estándar y madura.
+  <code>jsonschema</code> es tooling exclusivo de test (paralelo a <code>pytest</code>, que
+  <code>AGENTS.md</code> ya exige sin pasar por este documento), no una dependencia
+  de runtime de producto — este template sigue sin tener stack de
+  producto propio.</li>
+<li><code>agents.schema.json</code>/<code>models.schema.json</code> permiten propiedades
+    adicionales a nivel raíz de cada rol (<code>additionalProperties: true</code>)
+    para no romper con campos futuros menores, pero las prohíben dentro
+    de los bloques <code>claude</code>/<code>codex</code>/<code>opencode</code> (<code>additionalProperties:
+    false</code>) para detectar typos reales de configuración por herramienta.</li>
+<li><code>work-unit.schema.json</code> sí es estricto en su raíz
+    (<code>additionalProperties: false</code>) porque el manifest de Milestone tiene
+    una forma fija y pequeña, sin campos opcionales conocidos.</li>
+<li><strong>Qué sigue igual</strong>: ningún backend, base de datos ni servicio externo
+  nuevo. Los manifests de Milestone (<code>work-unit.json</code>) no autoreferencian
+  su propio schema con un campo <code>$schema</code>: la validación se ejerce solo
+  desde los tests, para no tocar el formato de archivo ya cubierto por
+  <code>test_workunit_lib.py</code>/<code>test_start_work_unit.py</code> ni arriesgar
+  compatibilidad con un manifest ya committeado en algún Milestone en
+  curso.</li>
+</ul>
+<h2 id="decision-contexto-de-producto-persistente-y-fase-clarify-en-analyst-agent">Decisión: contexto de producto persistente y Fase CLARIFY en analyst-agent</h2>
+<p><code>analyst-agent</code> dependía de que el humano repitiera en cada pedido
+información que ya vivía en el repo, y no tenía forma explícita de
+distinguir un supuesto técnico razonable de una decisión de negocio
+inventada.</p>
+<ul>
+<li><strong>Qué se agrega</strong>: <code>docs/producto/contexto-producto.md</code> (plantilla
+  neutral de conocimiento funcional persistente, transversal a features,
+  leída automáticamente por <code>analyst-agent</code> cuando existe); una Política
+  de fuentes y trazabilidad con precedencia explícita de 7 niveles; una
+  Fase CLARIFY (ronda de preguntas concretas devuelta al Main Agent antes
+  de cerrar <code>spec.md</code>, resuelta en la conversación ordinaria con el
+  humano, sin crear un segundo HITL formal); secciones nuevas en
+  <code>spec.md</code> (<code>Identificación</code>, <code>Contexto y fuentes</code>, <code>Supuestos</code>,
+  <code>Clarificaciones realizadas</code>, <code>Decisiones pendientes bloqueantes</code>); un
+  gate explícito de tamaño/descomposición de Milestone (independencia,
+  cohesión, alcance, capacidad de revisión, capacidad de prueba, riesgo
+  de integración, tamaño del cambio) aplicado por <code>analyst-agent</code>
+  (autochequeo) y auditado por <code>reviewer-agent</code>; y una regla para que
+  <code>builder-agent</code> traslade a <code>docs/producto/contexto-producto.md</code> las
+  decisiones de producto estables detectadas al cerrar una feature.</li>
+<li><strong>Por qué ahora</strong>: mejorar la calidad de <code>spec.md</code> sin que cada pedido
+  tenga que repetir contexto ya documentado, y sin que ninguna
+  ambigüedad de negocio se resuelva por invención silenciosa de un
+  agente.</li>
+<li><strong>Por qué este enfoque y no otro</strong>: se evaluó adoptar GitHub Spec Kit
+  (Specify/Clarify) como herramienta, pero se descartó por agregar una
+  dependencia externa y una estructura de directorios propia que
+  duplicaría el circuito ya existente de este template; en cambio se
+  tomaron sus conceptos (clarificación explícita, contexto persistente)
+  y se integraron directamente en <code>analyst-agent</code>/<code>reviewer-agent</code>/
+  <code>builder-agent</code> y en <code>AGENTS.md</code>. Se descartó también agregar un sexto
+  agente o un nuevo <code>MODE</code> operativo para el bootstrap de contexto de
+  producto: como <code>analyst-agent</code> no tiene <code>Write</code> (ver
+  <code>.agentic/agents.json</code>), el Main Agent escribe el archivo a partir del
+  borrador que <code>analyst-agent</code> devuelve como texto, sin tocar
+  <code>ROADMAP.md</code> ni crear rama/PR para esa operación.</li>
+<li><strong>Qué sigue igual</strong>: no se agrega backend, base de datos, servicio
+  externo ni dependencia de build. El único HITL formal del circuito
+  sigue siendo la decisión <code>MERGE</code>/<code>NO MERGE</code> sobre la PR; Fase CLARIFY
+  es conversación ordinaria entre el Main Agent y el humano, no un
+  checkpoint nuevo. El formato de <code>ROADMAP.md</code> (<code>[ ]</code>/<code>[-]</code>/<code>[x]</code>, patrón
+  <code>NN-slug</code>) no cambia; el bloque <code>Referencias:</code> opcional es indentado y
+  no interfiere con los parsers existentes (<code>Get-RoadmapItemState*</code> en
+  <code>scripts/workunit-lib.ps1</code> matchean solo la línea del ítem).</li>
+</ul>
+<h2 id="decision-motor-de-scripts-en-powershell-plataforma-primaria-windows">Decisión: motor de scripts en PowerShell, plataforma primaria Windows</h2>
+<p>El motor ejecutable del circuito (<code>scripts/*.ps1</code>) está escrito en
+PowerShell desde el origen del template. Esto es una decisión explícita,
+no un descuido a corregir: no hay ningún plan de reescribir el motor en
+otro lenguaje. Lo que sí queda documentado acá es el alcance real de su
+portabilidad, porque no es uniforme entre scripts.</p>
+<ul>
+<li><strong>Qué se agrega</strong>: esta sección deja constancia de la decisión y del
+  estado real de compatibilidad multiplataforma, sin cambiar código.</li>
+<li><strong>Por qué PowerShell y no otro lenguaje</strong>: PowerShell Core (<code>pwsh</code>) es
+  multiplataforma (Windows, macOS, Linux) desde PowerShell 6, provee
+  objetos tipados en vez de solo texto (útil para JSON de <code>.agentic/*</code>),
+  y evita mezclar dos lenguajes de scripting distintos (uno para
+  Windows, otro para Unix) para el mismo motor. La mayoría de los
+  scripts (<code>sync-agentic-adapters.ps1</code>, <code>feature-contract.ps1</code>,
+  <code>workunit-lib.ps1</code>, <code>start-work-unit.ps1</code>, <code>ready-for-pr.ps1</code> en su
+  lógica principal, <code>wait-pr-ci.ps1</code>, <code>close-feature.ps1</code>,
+  <code>resolve-agentic-model.ps1</code>) solo usan cmdlets estándar de PowerShell
+  más <code>git</code>/<code>gh</code> como procesos externos, y corren igual bajo <code>pwsh</code> en
+  Windows, macOS o Linux.</li>
+<li><strong>Excepción real y honesta</strong>: <code>scripts/local-feature-reconcile.ps1</code>
+  (el reconciliador local que limpia worktree/rama tras el cierre
+  remoto de una feature, ver "Troubleshooting" en
+  <code>docs/tecnica/circuito-agentico.md</code>) usa
+  <code>Start-Process -WindowStyle Hidden</code> para lanzarse a sí mismo en
+  background, y prioriza <code>powershell.exe</code> (Windows PowerShell 5.1) sobre
+  <code>pwsh</code>, con fallback a <code>pwsh</code> si <code>powershell.exe</code> no existe.
+  <code>scripts/complete-approved-pr.ps1</code> (que invoca ese mismo reconciliador
+  después de un merge aprobado) todavía llama directo a <code>powershell.exe</code>
+  sin ese fallback. Ninguna de las dos rutas fue validada en macOS o
+  Linux.</li>
+<li><strong>Qué necesita un usuario en Mac/Linux</strong>: instalar PowerShell 7
+  (<code>brew install --cask powershell</code> en macOS, o el paquete <code>powershell</code>
+  de Microsoft para <code>apt</code>/<code>dnf</code> en Linux) cubre todos los scripts salvo
+  el reconciliador local. Si el reconciliador local no arranca o se
+  comporta distinto en su plataforma, no bloquea el circuito: es
+  limpieza de conveniencia puramente local (worktree/rama), no afecta
+  CI, el gate post-HITL ni el cierre remoto de <code>ROADMAP.md</code> (los tres
+  corren en GitHub Actions). La alternativa manual es
+  <code>git worktree remove</code> + <code>git branch -d</code> sobre la feature ya mergeada.</li>
+<li><strong>Qué sigue igual</strong>: no se reemplaza PowerShell por otro lenguaje. No
+  se agrega backend, base de datos, servicio externo ni dependencia de
+  build. Adaptar <code>local-feature-reconcile.ps1</code>/<code>complete-approved-pr.ps1</code>
+  para macOS/Linux (o unificar el orden de preferencia <code>pwsh</code> vs.
+  <code>powershell.exe</code> entre ambos) queda pendiente como trabajo futuro, no
+  resuelto por esta decisión.</li>
+</ul>
+<h2 id="decision-modelo-de-evolucion-del-template-es-snapshot-no-sincronizado">Decisión: modelo de evolución del template es <code>snapshot</code>, no sincronizado</h2>
+<p>Cuando un proyecto real adopta o clona este template (ver
+<code>docs/tecnica/adopcion-proyecto-existente.md</code>), el resultado es una copia
+independiente: ese proyecto evoluciona por su cuenta desde ese momento y
+no existe ningún mecanismo, automático ni manual, que vuelva a sincronizar
+cambios posteriores del template origen hacia los proyectos que ya lo
+adoptaron, ni en sentido inverso.</p>
+<ul>
+<li><strong>Qué se agrega</strong>: esta sección deja constancia explícita del modelo de
+  evolución real (<code>snapshot</code>), sin agregar código ni mecanismo nuevo.</li>
+<li><strong>Por qué ahora</strong>: el comportamiento ya era el diseño real desde el
+  origen del template (no hay remote <code>upstream</code>, subtree, submódulo, ni
+  workflow de sync en este repo ni en la guía de adopción), pero no
+  estaba declarado en ningún lugar de forma inequívoca — quedaba implícito
+  en la redacción de <code>docs/tecnica/adopcion-proyecto-existente.md</code>.</li>
+<li><strong>Por qué este enfoque y no otro</strong>: se evaluó (solo como contraste, no
+  como trabajo a implementar) un modelo de sincronización continua
+  (<code>git subtree</code>/<code>submodule</code>/un workflow que compare contra el template
+  origen), pero un modelo <code>snapshot</code> es consistente con el resto del
+  diseño: <code>AGENTS.md</code> ya asume que cada proyecto real customiza
+  "Stack", "Estructura del repo" y "Propósito del producto" con contenido
+  propio no reversible a una plantilla genérica, y
+  <code>docs/tecnica/adopcion-proyecto-existente.md</code> ya describe fusión manual
+  sección por sección, no un mecanismo automático repetible.</li>
+<li><strong>Qué sigue igual</strong>: no se crea ningún mecanismo nuevo de actualización
+  o sincronización entre este template y los proyectos que ya lo
+  adoptaron. Si un proyecto real quiere traer una mejora posterior del
+  template (por ejemplo, un script nuevo en <code>scripts/</code>), es responsabilidad
+  manual de ese equipo, con la misma estrategia de fusión de
+  <code>docs/tecnica/adopcion-proyecto-existente.md</code>, no un <code>pull</code>/<code>merge</code>
+  automático contra este repositorio.</li>
+</ul>
+<h2 id="decision-enforcement-tecnico-de-develop-sin-branch-protection-nativa">Decisión: enforcement técnico de <code>develop</code> sin branch protection nativa</h2>
+<p><code>AGENTS.md</code> (sección "Setup manual" → "Branch protection de GitHub")
+documenta que este repositorio, privado, recibe <code>403 Upgrade to GitHub
+Pro or make this repository public to enable this feature</code> tanto en
+<code>branches/{branch}/protection</code> como en <code>repos/.../rulesets</code> — ninguna
+branch protection nativa de GitHub está disponible hoy contra <code>develop</code>
+sin cambiar de plan o hacer público el repositorio, ambas decisiones
+explícitamente fuera del alcance de cualquier agente.</p>
+<ul>
+<li><strong>Qué se agrega</strong>: <code>.github/workflows/guard-develop-branch.yml</code>, un
+  workflow disparado por cualquier <code>push</code> a <code>develop</code>. Para cada commit
+  introducido por el push, consulta
+  <code>GET /repos/{owner}/{repo}/commits/{sha}/pulls</code> (API de GitHub, no
+  requiere branch protection) y verifica si el commit está asociado a
+  una PR mergeada con <code>base.ref == develop</code>. Si algún commit no lo está
+  (push directo) o si el push fue forzado (<code>github.event.forced</code>), el
+  workflow: (a) revierte automáticamente los commits sin PR asociada con
+  <code>git revert</code> (o restaura <code>develop</code> al estado previo al force-push si
+  el commit anterior sigue siendo alcanzable), empujando la corrección
+  de vuelta a <code>develop</code>; (b) deja evidencia auditable — abre un issue
+  con el detalle del incidente y termina el run en rojo; y (c) si el
+  revert automático entra en conflicto, o el commit previo al
+  force-push ya no es alcanzable, no fuerza ningún estado: aborta,
+  dejamos <code>develop</code> como quedó, y el issue lo marca como intervención
+  manual inmediata requerida.</li>
+<li><strong>Por qué ahora</strong>: es el único hallazgo <code>CRITICAL</code> de la auditoría
+  baseline oficial (<code>AUDIT-2026-08-30-34773af-baseline-v1-1</code>, F-004): sin
+  branch protection nativa, la regla "nunca commitear directo a
+  <code>develop</code>" de <code>AGENTS.md</code> era solo convención documentada, sin ningún
+  control técnico — y eso ya ocurrió en la práctica (ver el mismo
+  <code>AGENTS.md</code>, historial de <code>develop</code> de agosto de 2026).</li>
+<li><strong>Por qué este enfoque y no otro</strong>: GitHub no ofrece, en un repositorio
+  privado de este plan, ningún equivalente a branch protection o
+  rulesets vía API ni vía UI — se confirmó con <code>gh api
+  repos/{owner}/{repo}/branches/develop/protection</code> y <code>.../rulesets</code>
+  antes de implementar esta decisión. La alternativa real disponible es
+  reactiva, no preventiva: como el <code>GITHUB_TOKEN</code> del propio repositorio
+  sí puede empujar a <code>develop</code> (nada lo bloquea), un workflow puede
+  detectar el estado no permitido después del hecho y revertirlo de
+  forma automática y auditable, que es la definición de "enforcement
+  técnicamente equivalente" que exige la remediación de F-004 cuando la
+  prevención nativa no está disponible. Se descartó notificar sin
+  revertir (no cierra el hallazgo, un push directo seguiría
+  "pegado" en <code>develop</code>) y se descartó documentación/disciplina humana
+  sola (ya demostrado insuficiente por el historial citado arriba).</li>
+<li><strong>Qué sigue igual</strong>: no reemplaza a la branch protection nativa si en
+  algún momento el repositorio pasa a GitHub Pro o se hace público — esa
+  sigue siendo la vía preferida y preventiva (bloquea el push antes de
+  que ocurra) en vez de reactiva (revierte después). Este workflow no
+  previene el push directo en sí — GitHub no ofrece ese control aquí—
+  solo garantiza que el estado no permitido no persista en <code>develop</code> sin
+  quedar revertido y documentado. Los push realizados con el
+  <code>GITHUB_TOKEN</code> del propio repositorio (por ejemplo el cierre automático
+  de <code>ROADMAP.md</code> en <code>post-merge-close-feature.yml</code>) no disparan este
+  workflow — GitHub no genera un nuevo evento de workflow para pushes
+  autenticados con <code>GITHUB_TOKEN</code> — por lo que no hace falta (ni se
+  intenta) una excepción explícita para ese caso dentro del workflow más
+  allá del chequeo defensivo <code>github.actor != 'github-actions[bot]'</code> ya
+  incluido. Límite conocido y no resuelto: si un force-push ocurre y el
+  commit previo ya fue recolectado por <code>git gc</code> antes de que el workflow
+  corra, la restauración automática no es posible (el workflow lo
+  detecta y lo deja explícito en el issue que crea, en vez de fallar en
+  silencio).</li>
+</ul>
+<h2 id="decision-ciclo-de-vida-de-main-creacion-condicionada-a-la-primera-release">Decisión: ciclo de vida de <code>main</code> — creación condicionada a la primera release</h2>
+<p><code>AGENTS.md</code> (sección "Git") define el ciclo de vida de las ramas de este
+repositorio en dos etapas estables: un <strong>estado inicial del template</strong>,
+en el que <code>develop</code> es la única rama de trabajo y <code>main</code> puede no
+existir, y un <strong>estado posterior a la primera release</strong>, en el que
+<code>main</code> ya existe y funciona como rama estable de producción. Ambas
+etapas son comportamiento correcto y esperado por diseño — ninguna es
+una etapa "provisional" que haya que resolver. Esta sección documenta
+por qué el modelo se define así, como ciclo de vida y no como una
+descripción fija del estado de una única etapa.</p>
+<ul>
+<li><strong>Qué se agrega</strong>: esta sección documenta el modelo de ciclo de vida
+  completo, sin crear la rama <code>main</code> ni cambiar ningún workflow, script
+  ni configuración. <code>main</code> se crea una única vez, exclusivamente cuando
+  el humano decide y aprueba una release del proyecto real construido
+  sobre este template: se identifica el commit exacto de <code>develop</code> que
+  se aprueba, se crea <code>main</code> a partir de ese commit, y se publica/pushea
+  por primera vez. Desde ese evento en adelante, <code>main</code> solo recibe
+  releases aprobadas desde <code>develop</code> vía PR — nunca se trabaja
+  directamente sobre ella, con el mismo criterio que ya rige para
+  <code>develop</code> en la etapa inicial. Ningún agente del circuito crea <code>main</code>
+  ni decide cuándo hacerlo: es exclusivamente una decisión humana, fuera
+  del circuito por feature.</li>
+<li><strong>Por qué ahora</strong>: una revisión de consistencia del flujo Git detectó
+  que <code>AGENTS.md</code> describía <code>main</code> únicamente como si ya existiera, sin
+  reconocer en ningún lugar que su creación es un evento condicionado a
+  una release aprobada, ni que el estado inicial del template (sin
+  <code>main</code>) es igualmente válido. Esta corrección documenta ambas etapas
+  del ciclo de vida como comportamiento estable, de modo que la
+  documentación siga siendo verdadera tanto antes como después de que
+  <code>main</code> exista.</li>
+<li><strong>Por qué este enfoque y no otro</strong>: se evaluó crear <code>main</code> de
+  inmediato (por ejemplo, desde el estado vigente de <code>develop</code> en el
+  momento de esta decisión) para eliminar de una sola vez cualquier
+  ambigüedad sobre su existencia, pero se descartó: crear una rama de
+  "producción" sin que medie una decisión real de release sería
+  anticipar una decisión que, por diseño de este template (<code>AGENTS.md</code>,
+  sección "Versionado (tags)"), es exclusivamente humana y vinculada a
+  un commit aprobado concreto, no a un estado arbitrario de <code>develop</code>
+  tomado solo para tener algo que publicar. Documentar el ciclo de vida
+  completo — incluyendo el evento que crea <code>main</code> — es la corrección
+  mínima suficiente; crear <code>main</code> sin una release real que la respalde
+  generaría una rama de producción sin contenido de producción real
+  detrás, lo cual sería peor que dejarla para el momento en que
+  corresponda por diseño.</li>
+<li><strong>Qué sigue igual</strong>: <code>develop</code> sigue siendo la rama de integración y de
+  trabajo diario para toda feature/milestone, en cualquiera de las dos
+  etapas del ciclo de vida; ningún workflow, script ni test del circuito
+  por feature/milestone cambia. <code>docs.yml</code> (publicación de MkDocs a
+  GitHub Pages, disparado por <code>push</code> a <code>main</code>) y la configuración de
+  GitHub Pages siguen el mismo ciclo de vida: sin ejecución posible
+  mientras <code>main</code> no exista, y operativos desde la release que primero
+  publique <code>main</code> con cambios en <code>docs/</code>/<code>mkdocs.yml</code> — eso es
+  consecuencia directa de este mismo modelo, no un defecto en ninguna de
+  las dos etapas. No se crea ningún mecanismo nuevo de sincronización
+  entre <code>develop</code> y <code>main</code>: el modelo del template sigue siendo
+  <code>snapshot</code> (ver "Decisión: modelo de evolución del template es
+  <code>snapshot</code>, no sincronizado" arriba); una vez que <code>main</code> exista, la
+  relación entre ambas ramas sigue siendo exclusivamente vía PR de
+  release humana, no un mecanismo automático adicional.</li>
+</ul>
+<h2 id="decision-fundamentos-v2-compatibles-con-v110">Decisión: fundamentos v2 compatibles con v1.1.0</h2>
+<p>Se elige <code>CONSTITUTION.md</code> en la raíz antes de materializar sus reglas:
+expresa principios normativos estables y es descubrible sin añadir una
+jerarquía. <code>CONSTITUTION.md</code> sería igualmente posible, pero sugeriría otra
+capa de gobierno sin una necesidad distinta. No se crean ambos archivos.
+AGENTS conserva comportamiento persistente; el documento de principios
+conserva invariantes y remite al diseño para su aplicación verificable.</p>
+<p>La Fase 00 agrega fundamentos documentales y un procedimiento temporal de
+supervisión con las herramientas existentes. No agrega un ejecutable vacío:
+no existe todavía <code>template run</code>. Las decisiones de diseño y compatibilidad
+se concentran en esta documentación de arquitectura, sin redefinir el stack.
+El motor v1, sus cinco etapas, artefactos y gates siguen vigentes hasta que
+una fase posterior demuestre y apruebe su sustitución incremental. Los tres
+roles conceptuales futuros son capacidades, no nombres de proveedores.</p>
+<p>La base estable es v1.1.0; el expediente de bootstrap registra objetos Git
+y árbol exactos. La integración se hace por PR de gobernanza desde develop,
+sin tocar main ni tags. No se cambia el modelo snapshot de adopción ni se
+migra automáticamente ningún proyecto consumidor. Se descarta reemplazar
+ahora scripts maduros: no existe evidencia comparativa que lo justifique.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.instant", "navigation.tracking", "navigation.sections", "navigation.prune", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+    
+  </body>
+</html>

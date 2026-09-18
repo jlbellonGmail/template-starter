@@ -1,0 +1,836 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
+    
+    
+      
+        <title>Adopción del circuito en un proyecto existente - Template AI-Native — Documentación</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#adopcion-del-circuito-en-un-proyecto-existente" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../.." title="Template AI-Native — Documentación" class="md-header__button md-logo" aria-label="Template AI-Native — Documentación" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Template AI-Native — Documentación
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Adopción del circuito en un proyecto existente
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Cambiar a modo oscuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo oscuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Cambiar a modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Pestañas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Inicio
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../producto/contexto-producto/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Producto
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Técnica
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../usuario/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Usuario
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Template AI-Native — Documentación" class="md-nav__button md-logo" aria-label="Template AI-Native — Documentación" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Template AI-Native — Documentación
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Inicio
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../producto/contexto-producto/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Producto
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Técnica
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usuario/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Usuario
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#agentic" class="md-nav__link">
+    <span class="md-ellipsis">
+      .agentic/
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scripts" class="md-nav__link">
+    <span class="md-ellipsis">
+      scripts/
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#runs" class="md-nav__link">
+    <span class="md-ellipsis">
+      runs/
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docstecnica" class="md-nav__link">
+    <span class="md-ellipsis">
+      docs/tecnica/
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docsusuario" class="md-nav__link">
+    <span class="md-ellipsis">
+      docs/usuario/
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#agentsmd" class="md-nav__link">
+    <span class="md-ellipsis">
+      AGENTS.md
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#githubworkflows" class="md-nav__link">
+    <span class="md-ellipsis">
+      .github/workflows/
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label=".github/workflows/">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ciyml" class="md-nav__link">
+    <span class="md-ellipsis">
+      ci.yml
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docsyml" class="md-nav__link">
+    <span class="md-ellipsis">
+      docs.yml
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#post-hitl-merge-gateyml" class="md-nav__link">
+    <span class="md-ellipsis">
+      post-hitl-merge-gate.yml
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#post-merge-close-featureyml" class="md-nav__link">
+    <span class="md-ellipsis">
+      post-merge-close-feature.yml
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limites-de-scriptscheck-adoption-conflictsps1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Límites de scripts/check-adoption-conflicts.ps1
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="adopcion-del-circuito-en-un-proyecto-existente">Adopción del circuito en un proyecto existente</h1>
+<p>Este documento es el checklist técnico de colisiones probables al mezclar
+este template (el circuito agéntico completo: <code>.agentic/</code>, <code>scripts/</code>,
+<code>runs/</code>, <code>docs/</code>, <code>AGENTS.md</code> y los 4 workflows de
+<code>.github/workflows/</code>) sobre un repositorio que <strong>ya tiene código propio</strong>
+— la ruta de adopción real más común, frente al caso de arrancar un
+repositorio vacío desde este template.</p>
+<p>Cubre exactamente los 7 elementos que enumera el ítem
+<code>03-adopcion-proyecto-existente</code> de <code>ROADMAP.md</code>: <code>.agentic/</code>,
+<code>scripts/</code>, <code>runs/</code>, <code>docs/tecnica/</code>, <code>docs/usuario/</code>, <code>AGENTS.md</code>, y los
+4 workflows de <code>.github/workflows/</code> tratados individualmente
+(<code>ci.yml</code>, <code>docs.yml</code>, <code>post-hitl-merge-gate.yml</code>,
+<code>post-merge-close-feature.yml</code>). Para cada uno describe qué colisión
+concreta es probable y una guía de merge accionable (fusionar, renombrar,
+mantener ambos, reemplazar, o extender un job/step existente).</p>
+<p>Este documento <strong>no automatiza nada</strong>: ninguna colisión se resuelve sola.
+La resolución de cada caso la hace el equipo que adopta el template,
+apoyándose opcionalmente en <code>scripts/check-adoption-conflicts.ps1</code> (ver
+la sección "Límites del script" más abajo) para saber, antes de copiar
+nada, qué rutas de este template ya existen en el repositorio destino.</p>
+<p>Nota adyacente: <code>docs/producto/contexto-producto.md</code> no es uno de los 7
+elementos de este checklist (el ítem de <code>ROADMAP.md</code> no lo incluye), pero
+conviene tenerlo presente al adoptar: si el proyecto destino ya tiene
+conocimiento funcional documentado en otro lugar, ese contenido debería
+migrarse a <code>docs/producto/contexto-producto.md</code> una vez adoptado el
+circuito, no perderse.</p>
+<h2 id="agentic"><code>.agentic/</code></h2>
+<p><strong>Colisión probable</strong>: el repositorio destino ya tiene una adopción
+previa (y potencialmente desactualizada) de este mismo template, con sus
+propios <code>roles/*.md</code>, <code>agents.json</code>, <code>models.json</code>, <code>mcp.json</code> o
+<code>schemas/</code> ya customizados para ese proyecto — por ejemplo, roles con
+reglas de dominio propias agregadas, o modelos distintos configurados en
+<code>agents.json</code>.</p>
+<p><strong>Estrategia de merge</strong>: si el destino no tiene <code>.agentic/</code> todavía,
+copiar el directorio completo tal cual. Si ya existe una adopción previa,
+no sobrescribir a ciegas: comparar archivo por archivo (especialmente
+<code>.agentic/agents.json</code> y <code>.agentic/roles/*.md</code>, que son los más
+propensos a tener customización real) y fusionar manualmente,
+conservando la customización del destino donde exista y trayendo las
+mejoras del template donde no haya conflicto real. Después de fusionar,
+correr <code>scripts/sync-agentic-adapters.ps1</code> y
+<code>scripts/sync-agentic-adapters.ps1 -Check</code> para regenerar y validar los
+adaptadores (<code>.claude/agents/*.md</code>, <code>.codex/*.config.toml</code>,
+<code>opencode.json</code>) — esos adaptadores nunca se editan a mano, así que no
+son ellos el punto de fusión: es <code>.agentic/</code> como fuente canónica.</p>
+<h2 id="scripts"><code>scripts/</code></h2>
+<p><strong>Colisión probable</strong>: colisión de <strong>nombre de archivo</strong> puntual, no de
+la carpeta en su conjunto — por ejemplo, si el destino ya tiene un script
+propio llamado <code>workunit-lib.ps1</code> o <code>ready-for-pr.ps1</code> para un propósito
+totalmente distinto al del circuito. Es poco probable que el destino
+tenga por coincidencia un script con el mismo nombre <em>y</em> el mismo
+propósito, así que la colisión esperable es de nombre, no de contenido
+equivalente.</p>
+<p><strong>Estrategia de merge</strong>: copiar los 11 scripts del circuito
+(<code>resolve-agentic-model.ps1</code>, <code>sync-agentic-adapters.ps1</code>,
+<code>update-doc-indexes.ps1</code>, <code>wait-pr-ci.ps1</code>, <code>start-work-unit.ps1</code>,
+<code>workunit-lib.ps1</code>, <code>local-feature-reconcile.ps1</code>, <code>close-feature.ps1</code>,
+<code>feature-contract.ps1</code>, <code>complete-approved-pr.ps1</code>, <code>ready-for-pr.ps1</code>)
+junto a los scripts existentes del destino: es una unión, no un
+reemplazo de carpeta. Si hay colisión de nombre exacto, renombrar el
+script <strong>del destino</strong> primero (el circuito referencia sus propios
+scripts por nombre exacto desde <code>AGENTS.md</code> y desde otros scripts, así
+que renombrar el lado del template rompe ese wiring interno); solo si el
+script del destino no puede renombrarse sin romper otra cosa, evaluar
+renombrar el del template y actualizar todas sus referencias cruzadas
+(<code>AGENTS.md</code>, otros <code>scripts/*.ps1</code>, workflows).</p>
+<h2 id="runs"><code>runs/</code></h2>
+<p><strong>Colisión probable</strong>: <code>runs/</code> es un nombre genérico. El destino puede
+ya tener una carpeta <code>runs/</code> para un propósito no relacionado —salidas de
+benchmarks, corridas de entrenamiento de modelos, resultados de
+ejecuciones de test suites, etc.— sin ninguna relación con el circuito
+agéntico.</p>
+<p><strong>Estrategia de merge</strong>: mover el contenido preexistente del destino a
+otro nombre (por ejemplo <code>runs-legacy/</code> o el nombre que tenga sentido
+para ese contenido), no renombrar la carpeta del circuito. <code>runs/</code> está
+hardcodeado por nombre fijo en <code>scripts/*.ps1</code> (por ejemplo
+<code>start-work-unit.ps1</code>, <code>ready-for-pr.ps1</code>, <code>close-feature.ps1</code>) y en
+<code>AGENTS.md</code>; renombrarlo requeriría cambios de código fuera del alcance
+de esta guía. La opción realista siempre es liberar el nombre <code>runs/</code>
+para el circuito, no adaptar el circuito al nombre que ya use el
+destino.</p>
+<h2 id="docstecnica"><code>docs/tecnica/</code></h2>
+<p><strong>Colisión probable</strong>: el destino ya tiene su propia carpeta
+<code>docs/tecnica/</code> (o equivalente) con archivos reales de documentación de
+diseño del producto existente, no relacionados con el circuito.</p>
+<p><strong>Estrategia de merge</strong>: fusionar, no reemplazar. Conservar todos los
+archivos existentes del destino, y agregar los archivos propios del
+template que falten: <code>index.md</code> (con los marcadores
+<code>&lt;!-- FEATURE_LINKS_START --&gt;</code> / <code>&lt;!-- FEATURE_LINKS_END --&gt;</code> que
+<code>scripts/update-doc-indexes.ps1</code> edita automáticamente),
+<code>arquitectura.md</code> y <code>circuito-agentico.md</code>. Si el destino ya tiene un
+<code>index.md</code> propio con otro formato, fusionar su contenido dentro de la
+plantilla del template para no perder los marcadores que el circuito
+necesita para agregar enlaces por feature automáticamente.</p>
+<h2 id="docsusuario"><code>docs/usuario/</code></h2>
+<p><strong>Colisión probable</strong>: igual que <code>docs/tecnica/</code> — el destino ya tiene su
+propia documentación de usuario/operación del producto existente.</p>
+<p><strong>Estrategia de merge</strong>: la misma que <code>docs/tecnica/</code>: fusionar
+conservando el contenido existente del destino y agregando <code>index.md</code>
+(con los mismos marcadores <code>FEATURE_LINKS_START</code>/<code>FEATURE_LINKS_END</code>) y
+<code>circuito-agentico.md</code> del template, sin pisar ningún archivo real del
+destino.</p>
+<h2 id="agentsmd"><code>AGENTS.md</code></h2>
+<p><strong>Colisión probable</strong>: el destino ya tiene su propio <code>AGENTS.md</code> (o un
+sistema equivalente de instrucciones para agentes IA, como
+<code>CLAUDE.md</code>/<code>.cursorrules</code>/similares) con contenido específico del
+proyecto: su stack real, sus convenciones de código, su propia
+estructura de repo. Un reemplazo directo por el <code>AGENTS.md</code> de este
+template destruye ese contexto real.</p>
+<p><strong>Estrategia de merge</strong>: fusión por sección, no reemplazo de archivo
+completo. Copiar tal cual las secciones "del circuito" —no negociables,
+son el motor agéntico en sí: "Workflow del proyecto", "Circuito",
+"Contexto de producto y bootstrap", "Retornos permitidos", "Estados de
+ROADMAP.md", "Modo MILESTONE", "Git", "Versionado (tags)", "CI/CD",
+"Herramientas locales requeridas", "Artefactos", "Formato de veredicto",
+"Configuración de modelos", "Reglas adicionales", "Reglas de dominio",
+"Setup manual"— y reemplazar únicamente las secciones que este mismo
+template documenta como propias de cada proyecto real: "Stack",
+"Estructura del repo" y "Propósito del producto" (si existiera), con el
+contenido real del destino. Si el destino tenía un <code>AGENTS.md</code> (o
+equivalente) con secciones que no mapean a ninguna de estas categorías,
+conservarlas como secciones adicionales al final, sin perderlas.</p>
+<h2 id="githubworkflows"><code>.github/workflows/</code></h2>
+<p>Los 4 workflows del circuito asumen GitHub Actions + GitHub CLI (<code>gh</code>),
+ya declarado en <code>AGENTS.md</code> ("Herramientas locales requeridas", "CI/CD").
+Esta guía no cubre otros hostings (GitLab CI, Bitbucket Pipelines, Azure
+DevOps): si el destino usa un hosting distinto, es un límite explícito,
+no algo que esta guía generalice.</p>
+<h3 id="ciyml"><code>ci.yml</code></h3>
+<p><strong>Colisión probable</strong>: el destino ya tiene su propio <code>ci.yml</code> (o
+workflow de CI con otro nombre) con sus propios pasos de build/test para
+el stack real del proyecto.</p>
+<p><strong>Estrategia de merge</strong>: extender, no reemplazar. Agregar el paso
+<code>pytest -v</code> del circuito (que corre los tests de <code>scripts/*.ps1</code> bajo
+<code>tests/</code>) como un paso o job adicional dentro del <code>ci.yml</code> existente del
+destino, sin quitar ni reemplazar los pasos de build/test propios del
+destino. Prestar atención a la versión de Python: este template pinea
+Python 3.12+ en su <code>setup-python</code>; si el <code>ci.yml</code> del destino ya fija
+otra versión de Python para su propio stack, verificar que ambos jobs/
+steps puedan coexistir (por ejemplo, en jobs separados con su propia
+matriz de versión) en vez de forzar una sola versión de Python para todo
+el workflow. Nota: el ítem <code>04-ci-wiring-product-tests</code> de <code>ROADMAP.md</code>
+va a separar <code>ci.yml</code> de este propio template en dos jobs
+(<code>circuit-tests</code> y <code>product-tests</code>); cuando ese trabajo esté hecho, fusionar
+<code>ci.yml</code> contra un destino será más simple porque el job <code>product-tests</code>
+ya va a traer un punto de extensión explícito. Esta guía documenta la
+estrategia contra la estructura <strong>actual</strong> de <code>ci.yml</code> (un solo job
+<code>test</code>).</p>
+<h3 id="docsyml"><code>docs.yml</code></h3>
+<p><strong>Colisión probable</strong>: el destino ya publica documentación con otro
+generador de sitio estático a GitHub Pages (Jekyll, Docusaurus,
+VuePress, Sphinx, etc.), potencialmente con su propio workflow ya
+apuntando al mismo repositorio de GitHub Pages.</p>
+<p><strong>Estrategia de merge</strong>: esta guía no resuelve este caso de forma
+automática — es un punto de decisión explícito para el equipo que
+adopta el template. Las dos opciones razonables son (a) mantener ambos
+workflows activos, cada uno publicando a una ruta/carpeta distinta
+dentro del mismo sitio de GitHub Pages, o (b) migrar la documentación
+existente del destino a MkDocs (el generador que usa <code>docs.yml</code> de este
+template) y quedarse con un solo pipeline de publicación. Ninguna de las
+dos se aplica por defecto: el equipo debe decidir según cuánto contenido
+ya tenga publicado con el generador anterior.</p>
+<h3 id="post-hitl-merge-gateyml"><code>post-hitl-merge-gate.yml</code></h3>
+<p><strong>Colisión probable</strong>: colisión de <strong>nombre de archivo</strong> sin relación
+semántica — el destino ya tiene un workflow con ese nombre exacto para
+una automatización propia no relacionada con el circuito agéntico (poco
+probable pero posible dado que es un nombre bastante específico; más
+probable si el destino ya tenía su propio concepto de "gate post
+aprobación").</p>
+<p><strong>Estrategia de merge</strong>: renombrar el archivo del template (por ejemplo
+<code>post-hitl-merge-gate.circuit.yml</code>) es una estrategia segura sin tocar
+más wiring, porque los nombres de archivo de workflows de GitHub Actions
+son arbitrarios: este workflow se dispara por eventos (<code>pull_request_review:
+submitted</code>, <code>pull_request: synchronize</code>) y por invocar
+<code>scripts/complete-approved-pr.ps1</code>, no por su nombre de archivo, así que
+renombrarlo no rompe ninguna referencia interna del circuito.</p>
+<h3 id="post-merge-close-featureyml"><code>post-merge-close-feature.yml</code></h3>
+<p><strong>Colisión probable</strong>: igual que <code>post-hitl-merge-gate.yml</code> — posible
+colisión de nombre de archivo sin relación semántica.</p>
+<p><strong>Estrategia de merge</strong>: igual que el anterior. Renombrar el archivo del
+template es seguro: este workflow se dispara cuando una PR hacia
+<code>develop</code> se cierra como mergeada e invoca
+<code>scripts/close-feature.ps1 -SkipLocalCleanup</code>, wiring que depende del
+contenido y del evento disparador, no del nombre del archivo <code>.yml</code>.</p>
+<h2 id="limites-de-scriptscheck-adoption-conflictsps1">Límites de <code>scripts/check-adoption-conflicts.ps1</code></h2>
+<p><code>scripts/check-adoption-conflicts.ps1</code> es una herramienta de apoyo
+<strong>opcional</strong>, de solo lectura, que reporta qué rutas conocidas de este
+template ya existen en un directorio destino, agrupadas por elemento de
+este mismo checklist. Ver
+<a href="../../usuario/adopcion-proyecto-existente/">la guía de usuario</a> para cómo
+correrlo. Sus límites, explícitos y deliberados:</p>
+<ul>
+<li><strong>No compara contenido ni hace diff.</strong> Solo verifica existencia de la
+  ruta con <code>Test-Path</code>. No lee el contenido de ningún archivo del
+  destino, así que no puede decirte si un archivo detectado es
+  compatible, obsoleto o inofensivo de sobrescribir.</li>
+<li><strong>No distingue "archivo idéntico al del template" de "archivo que solo
+  comparte el nombre".</strong> Si el destino tiene un <code>scripts/ready-for-pr.ps1</code>
+  que no tiene absolutamente nada que ver con el circuito, el script lo
+  reporta igual que si fuera una adopción previa real del mismo template.
+  La decisión de cuál es cuál queda siempre en manos de quien lee el
+  reporte.</li>
+<li><strong>No usa historial de git.</strong> No intenta inferir qué existía "antes" de
+  mezclar el template en el destino, ni asume que el destino es (o no es)
+  un repositorio git. Esto es una decisión deliberada, no una limitación
+  técnica accidental: usar historial de git requeriría asumir que el
+  destino tiene el template como remoto o subtree accesible, algo que no
+  se puede garantizar en un repositorio destino genérico.</li>
+<li><strong>No resuelve ninguna colisión automáticamente.</strong> El script solo
+  detecta y reporta; no copia, fusiona, sobrescribe ni borra nada. La
+  resolución de cada colisión reportada sigue siempre la guía de merge
+  de la sección correspondiente de este mismo documento.</li>
+<li><strong>Límite conocido no resuelto: acceso denegado.</strong> Si <code>$TargetPath</code>
+  existe pero alguna de sus subrutas no es accesible (permisos
+  denegados, unidad de red desconectada, etc.), <code>Test-Path</code> de
+  PowerShell típicamente devuelve <code>$false</code> en vez de lanzar una
+  excepción — lo que el script reportaría como "no existe" en vez de
+  "no se pudo inspeccionar". El script no agrega lógica adicional para
+  distinguir ambos casos: quien lo corre contra un destino con permisos
+  restringidos debe tenerlo presente y no confiar ciegamente en un
+  reporte de "sin colisiones" si sospecha que hay rutas inaccesibles.</li>
+<li><strong>La lista de rutas conocidas se mantiene manualmente alineada con
+  este checklist.</strong> El script no parsea este archivo Markdown en tiempo
+  de ejecución; su tabla interna de rutas conocidas es una lista fija
+  que replica a mano las rutas descriptas en las secciones de arriba. Si
+  este checklist cambia (por ejemplo, se agrega un archivo nuevo al
+  circuito), la tabla del script debe actualizarse por separado.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.instant", "navigation.tracking", "navigation.sections", "navigation.prune", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+    
+  </body>
+</html>
