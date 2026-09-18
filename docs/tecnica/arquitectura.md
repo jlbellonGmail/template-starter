@@ -365,7 +365,7 @@ conserva invariantes y remite al diseño para su aplicación verificable.
 La Fase 00 agrega fundamentos documentales y un procedimiento temporal de
 supervisión con las herramientas existentes. No agrega un ejecutable vacío:
 no existe todavía `template run`. Las decisiones de diseño y compatibilidad
-se concentran en [Fundamentos v2](fundamentos-v2.md), sin redefinir el stack.
+se concentran en esta documentación de arquitectura, sin redefinir el stack.
 El motor v1, sus cinco etapas, artefactos y gates siguen vigentes hasta que
 una fase posterior demuestre y apruebe su sustitución incremental. Los tres
 roles conceptuales futuros son capacidades, no nombres de proveedores.
