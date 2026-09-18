@@ -17,8 +17,6 @@ calificación subjetiva.
 
 <!-- FEATURE_LINKS_START -->
 
-- [Fundamentos v2](fundamentos-v2.md)
-
 - [Fuente unica router modelos](fuente-unica-router-modelos.md)
 - [Code Reviewer Y Sdd](code-reviewer-y-sdd.md)
 - [Integridad Post Hitl Y Ready For Pr](integridad-post-hitl-y-ready-for-pr.md)

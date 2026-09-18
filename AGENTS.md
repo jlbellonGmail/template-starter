@@ -5,7 +5,8 @@ no el backlog, una spec de feature ni una fotografía del estado de Git.
 Para una regla normativa estable consultar [CONSTITUTION.md](CONSTITUTION.md);
 para el trabajo planificado consultar [ROADMAP.md](ROADMAP.md); para la
 reentrada consultar [STATUS.md](STATUS.md). Las decisiones técnicas y la
-matriz de compatibilidad están en [docs/tecnica/fundamentos-v2.md](docs/tecnica/fundamentos-v2.md).
+matriz de compatibilidad del proyecto nuevo deben documentarse en
+`docs/tecnica/arquitectura.md`.
 
 ## Reentrada operativa (STATUS.md)
 
