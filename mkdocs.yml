@@ -1,0 +1,38 @@
+site_name: Template AI-Native — Documentación
+
+theme:
+  name: material
+  language: es
+
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/weather-sunny
+        name: Cambiar a modo oscuro
+
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/weather-night
+        name: Cambiar a modo claro
+
+  features:
+    - navigation.tabs
+    - navigation.instant
+    - navigation.tracking
+    - navigation.sections
+    - navigation.prune
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+
+nav:
+  - Inicio: index.md
+  - Producto: producto/contexto-producto.md
+  - Técnica: tecnica/index.md
+  - Usuario: usuario/index.md
+
+plugins:
+  - search
+  - tags

@@ -1,0 +1,41 @@
+# Python (tooling del circuito: pytest para tests/*.ps1 wrappers)
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.pytest-tmp/
+.venv/
+venv/
+
+# Node.js (si el proyecto real incorpora backend/tooling en Node)
+node_modules/
+
+# Local editor / agent settings
+.claude/settings.local.json
+.cursor/
+.vscode/
+.idea/
+
+# MkDocs build output
+site/
+
+# opencode local runtime state (wiring stays versioned via .opencode/.gitignore)
+.opencode/node_modules/
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+# OS
+.DS_Store
+Thumbs.db
+
+# PID files residuales de procesos en background del circuito
+# (ej. local-feature-reconcile.ps1 -StartBackground)
+*-pid.txt
+*.pid
+
+# Headroom - archivos locales de runtime/wrapping
+**/.headroom_wrap_marker.json
+**/.headroom_wrap_owners.json
+**/.headroom_wrap_settings.lock
