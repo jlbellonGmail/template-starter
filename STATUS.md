@@ -18,11 +18,11 @@ de verdad.
 
 ## Estado verificado automáticamente
 
-- Actualizado: 2026-09-25T12:38:23.1453548Z
-- Versión de desarrollo: v2.0.1
+- Actualizado: 2026-09-25T13:10:09.4353238Z
+- Versión de desarrollo: v2.0.2
 - Fuente de versión: git tag
 - Rama: main
-- HEAD: bfd363faf41f304621115502dae6b0b5a0fada94
+- HEAD: a757c8dc1c3e12a28c36fec8edeb398720e3b1b7
 - Remoto: https://github.com/jlbellonGmail/template-starter.git
 - Relación con remoto: 0	0
 - Working tree: dirty
@@ -31,6 +31,6 @@ de verdad.
 - PR vigente: ninguna PR abierta para este HEAD
 - CI vigente: NOT AVAILABLE / gh no disponible
 - Última release publicada: UNKNOWN / no release publicada verificable
-- Último tag: v2.0.1
+- Último tag: v2.0.2
 
 <!-- STATUS:AUTO:END -->

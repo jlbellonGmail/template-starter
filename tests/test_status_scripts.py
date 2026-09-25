@@ -123,3 +123,6 @@ def test_historical_runs_do_not_create_active_units_and_real_worktree_does(tmp_p
     assert snapshot["activeUnits"][0]["source"] == "git-worktree"
     git(repo, "worktree", "remove", str(linked))
     assert json_snapshot(repo)["activeUnits"] == []
+def test_ci_ignores_non_ci_workflows_for_same_head():
+    source = (ROOT / "scripts" / "status-lib.ps1").read_text(encoding="utf-8")
+    assert "Where-Object {$_.workflowName -eq 'CI'}" in source

@@ -116,7 +116,11 @@ function Get-StatusSnapshot {
         $prValue=if($pr.Count){$pr[0]}else{$null}
         $ciInfo=Get-StatusGhJson $gh @('run','list','--branch',$branch,'--commit',$head,'--limit','20','--json','name,status,conclusion,headSha,url,workflowName,createdAt')
         $runs=if($ciInfo.Available){@($ciInfo.Value | Where-Object {$_.headSha -eq $head})}else{@()}
-        $ci=if($runs.Count){$runs | Sort-Object createdAt -Descending | Select-Object -First 1}else{$null}
+        # Otros workflows (por ejemplo Guard develop branch) pueden fallar
+        # sobre el mismo SHA sin ser el CI de producto. Sólo el workflow CI
+        # determina el campo CI vigente del snapshot.
+        $ciRuns=@($runs | Where-Object {$_.workflowName -eq 'CI'})
+        $ci=if($ciRuns.Count){$ciRuns | Sort-Object createdAt -Descending | Select-Object -First 1}else{$null}
         $relInfo=Get-StatusGhJson $gh @('release','list','--limit','20','--json','tagName,name,publishedAt,isDraft,isPrerelease')
         $release=if($relInfo.Available){@($relInfo.Value | Where-Object {-not $_.isDraft -and -not $_.isPrerelease -and $_.publishedAt} | Sort-Object publishedAt -Descending | Select-Object -First 1)}else{@()}
         $releaseValue=if($release.Count){$release[0]}else{$null}
