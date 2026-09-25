@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "sharedPaths": [
+    "scripts/status-lib.ps1",
+    "scripts/update-status.ps1",
+    "scripts/check-status.ps1",
+    "scripts/check-integrity.ps1",
+    "scripts/local-feature-reconcile.ps1",
+    "scripts/start-work-unit.ps1",
+    "scripts/template-starter-manifest.json",
+    "scripts/sync-template-starter.ps1",
+    "docs/tecnica/status-observabilidad.md",
+    "docs/usuario/status-observabilidad.md",
+    "tests/test_status_scripts.py"
+  ]
+}

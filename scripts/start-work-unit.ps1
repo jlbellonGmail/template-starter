@@ -175,6 +175,17 @@ else {
     New-Item -ItemType Directory -Path (Join-Path $worktreeDir $featureRunRelative) -Force | Out-Null
 }
 
+# La creación del worktree es una transición observable del repositorio
+# principal. Regenerar al final evita que STATUS conserve el inventario previo.
+$statusScript = Join-Path $PSScriptRoot "update-status.ps1"
+$statusPath = Join-Path $repoRoot "STATUS.md"
+if ((Test-Path -LiteralPath $statusScript -PathType Leaf) -and (Test-Path -LiteralPath $statusPath -PathType Leaf)) {
+    $statusPowerShell = Get-Command pwsh -ErrorAction SilentlyContinue
+    if (-not $statusPowerShell) { $statusPowerShell = Get-Command powershell.exe -ErrorAction Stop }
+    & $statusPowerShell.Source -NoProfile -ExecutionPolicy Bypass -File $statusScript -RepositoryRoot $repoRoot
+    if ($LASTEXITCODE -ne 0) { throw "La unidad se creo, pero no se pudo regenerar STATUS.md." }
+}
+
 Write-Host ""
 Write-Host "==> Work unit '$Slug' ($Mode) listo."
 Write-Host "==> Rama: $branch"

@@ -20,6 +20,7 @@ param(
 
 $ErrorActionPreference = "Stop"
 . (Join-Path $PSScriptRoot "feature-contract.ps1")
+$scriptPath = $PSCommandPath
 
 function Test-GitSuccess {
     param([Parameter(Mandatory = $true)][string[]] $Arguments)
@@ -30,6 +31,17 @@ function Test-GitSuccess {
 function Convert-ToPowerShellLiteral {
     param([Parameter(Mandatory = $true)][string] $Value)
     return "'" + ($Value -replace "'", "''") + "'"
+}
+
+function Convert-ToStartProcessArgument {
+    param([Parameter(Mandatory = $true)][AllowEmptyString()][string] $Value)
+
+    # Start-Process recibe una linea de comandos en Windows PowerShell 5.1.
+    # Citar todos los argumentos evita que rutas temporales con espacios se
+    # separen al crear el proceso hijo.
+    $escaped = $Value -replace '(\\*)"', '$1$1\"'
+    $escaped = $escaped -replace '(\\+)$', '$1$1'
+    return '"' + $escaped + '"'
 }
 
 function Start-LocalReconciler {
@@ -92,7 +104,9 @@ function Start-LocalReconciler {
             # Windows PowerShell 5.1 rechaza arrays con valores vacios al
             # bindear Start-Process. El launcher ya calculo todos los
             # parametros; una cadena unica conserva el orden sin nulls.
-            ArgumentList = ($arguments | Where-Object { $null -ne $_ -and $_ -ne "" }) -join " "
+            ArgumentList = (($arguments | Where-Object { $null -ne $_ -and $_ -ne "" } | ForEach-Object {
+                Convert-ToStartProcessArgument ([string]$_)
+            }) -join " ")
             WorkingDirectory = $mainRoot
             RedirectStandardOutput = $logPath
             RedirectStandardError = $errorLogPath
@@ -200,6 +214,16 @@ try {
             }
             if (Test-GitSuccess @("rev-parse", "--verify", "--quiet", $Branch)) {
                 Invoke-Checked "git" @("branch", "-d", $Branch)
+            }
+            # La limpieza cambia worktrees y ramas reales. STATUS se regenera
+            # sólo después de ambas operaciones, nunca desde runs históricos.
+            $statusScript = Join-Path $PSScriptRoot "update-status.ps1"
+            $statusPath = Join-Path $mainRoot "STATUS.md"
+            if ((Test-Path -LiteralPath $statusScript -PathType Leaf) -and (Test-Path -LiteralPath $statusPath -PathType Leaf)) {
+                $pwsh = (Get-Command pwsh -ErrorAction SilentlyContinue)
+                if (-not $pwsh) { $pwsh = Get-Command powershell.exe -ErrorAction Stop }
+                & $pwsh.Source -NoProfile -ExecutionPolicy Bypass -File $statusScript -RepositoryRoot $mainRoot
+                if ($LASTEXITCODE -ne 0) { throw "Cleanup completado pero no se pudo regenerar STATUS.md." }
             }
             Write-Host "==> Reconciliacion local completa para $Slug."
             exit 0

@@ -1,5 +1,6 @@
-param([string]$RepositoryRoot="", [string]$WorktreeDir="", [string]$Version="v2.0.0")
+param([string]$RepositoryRoot="", [string]$WorktreeDir="", [string]$Version="", [switch]$AllowStarter)
 $ErrorActionPreference = "Stop"
+. (Join-Path $PSScriptRoot "status-lib.ps1")
 function Git([string[]]$Arguments) {
   $gitCommand = Get-Command git -CommandType Application -ErrorAction Stop | Select-Object -First 1
   $out = & $gitCommand.Source @Arguments 2>&1
@@ -10,13 +11,30 @@ try {
   $root = if ($RepositoryRoot) { [IO.Path]::GetFullPath($RepositoryRoot) } else { [IO.Path]::GetFullPath((Git @("rev-parse","--show-toplevel"))) }
   Push-Location $root
   try {
+    if ($AllowStarter) {
+      $checkStatus = Join-Path $PSScriptRoot "check-status.ps1"
+      & (Get-Command pwsh -ErrorAction SilentlyContinue).Source -NoProfile -ExecutionPolicy Bypass -File $checkStatus
+      if ($LASTEXITCODE -ne 0) { throw "STATUS invalido en starter." }
+      Write-Host "PASS integridad starter: STATUS/Git verificados; no se evaluan evidencias historicas del Template."
+      exit 0
+    }
     $errors = [Collections.Generic.List[string]]::new()
     $warnings = [Collections.Generic.List[string]]::new()
+    if ([string]::IsNullOrWhiteSpace($Version)) {
+      $branch = Git @("branch", "--show-current")
+      $resolved = Get-StatusVersion $root $branch
+      if ([string]::IsNullOrWhiteSpace($resolved.value)) { throw "No se pudo determinar la version para check-integrity; informe -Version explicitamente." }
+      $Version = $resolved.value
+    }
     $roadmap = Get-Content "ROADMAP.md" -Raw -Encoding UTF8
     if ($Version -notmatch '^v[0-9]+\.[0-9]+\.[0-9]+$') { throw "Version invalida: $Version" }
-    $v2 = Join-Path $root (Join-Path "runs" $Version)
-    $dirs = @(Get-ChildItem $v2 -Directory -ErrorAction SilentlyContinue)
-    $runT = @($dirs | Where-Object { $_.Name -match '^T\d{2}-[a-z0-9]+(?:-[a-z0-9]+)*$' })
+ $runsRoot = Join-Path $root "runs"
+ $v2 = Join-Path $runsRoot $Version
+ # ROADMAP mezcla unidades históricas de varias releases. La integridad
+ # debe resolver su evidencia canónica en todo runs/, no asumir que todas
+ # pertenecen a la versión que se está validando.
+ $dirs = @(Get-ChildItem $runsRoot -Directory -Recurse -ErrorAction SilentlyContinue)
+ $runT = @($dirs | Where-Object { $_.Name -match '^T\d{2}-[a-z0-9]+(?:-[a-z0-9]+)*$' })
     $roadT = @([regex]::Matches($roadmap,'(?m)^-\s+(?:\[[ x-]\]\s+)?(?<id>T\d{2}-[a-z0-9]+(?:-[a-z0-9]+)*)\b.*') | ForEach-Object { $_.Groups["id"].Value })
     if (($roadT | Group-Object | Where-Object Count -gt 1).Count) { [void]$errors.Add("identidad Txx duplicada en ROADMAP.md") }
     $head = Git @("rev-parse","HEAD")
@@ -58,10 +76,12 @@ try {
         }
       }
     }
-    $summaries = @(Get-ChildItem $v2 -Filter SUMMARY.md -File -Recurse -ErrorAction SilentlyContinue)
+ $summaries = @(Get-ChildItem $runsRoot -Filter SUMMARY.md -File -Recurse -ErrorAction SilentlyContinue)
     foreach ($match in [regex]::Matches($roadmap,'(?m)^- \[x\] (?<id>[a-z0-9]+-[a-z0-9]+(?:-[a-z0-9]+)*)\b.*?Fase\s+(?<n>\d+)')) {
       $phaseId = $match.Groups["id"].Value
-      $phaseSummary = Join-Path $v2 (Join-Path $phaseId "SUMMARY.md")
+ $phaseDir = Get-ChildItem $runsRoot -Directory -Recurse -ErrorAction SilentlyContinue |
+   Where-Object { $_.Name -eq $phaseId } | Select-Object -First 1
+ $phaseSummary = if ($phaseDir) { Join-Path $phaseDir.FullName "SUMMARY.md" } else { "" }
       if (-not (Test-Path $phaseSummary -PathType Leaf) -or [string]::IsNullOrWhiteSpace((Get-Content $phaseSummary -Raw -Encoding UTF8))) {
         $n = [int]$match.Groups["n"].Value
         [void]$errors.Add("ROADMAP F$("{0:D2}" -f $n) [x] sin SUMMARY de cierre: $phaseId")

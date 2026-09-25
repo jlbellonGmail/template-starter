@@ -1,7 +1,7 @@
 # AI-Native Project Starter
 
 Este repositorio es un punto de partida limpio generado desde el circuito
-AI-Native Template v2.0.1. Es un snapshot independiente: no conserva la
+AI-Native Template v2.0.2. Es un snapshot independiente: no conserva la
 historia, tags, releases ni evidencias del repositorio fuente.
 
 > ¿Estás retomando un repo que ya usa este template? Antes de seguir estos

@@ -3,6 +3,7 @@ import shutil
 import subprocess
 from pathlib import Path
 import pytest
+import json
 
 ROOT = Path(__file__).resolve().parents[1]
 UPDATE = ROOT / "scripts" / "update-status.ps1"
@@ -78,3 +79,47 @@ def test_no_gh_is_warning(tmp_path):
 
 def test_execution_error_is_exit_two(tmp_path):
     assert run(UPDATE, tmp_path).returncode == 2
+
+
+def json_snapshot(repo):
+    result = subprocess.run(
+        [powershell(), "-NoProfile", "-ExecutionPolicy", "Bypass", "-File", str(UPDATE), "-Json"],
+        cwd=repo, text=True, capture_output=True, env=environment()
+    )
+    assert result.returncode == 0, result.stdout + result.stderr
+    return json.loads(result.stdout)
+
+
+def test_version_is_not_hardcoded_and_unknown_is_explicit(tmp_path):
+    repo = make_repo(tmp_path)
+    (repo / "ROADMAP.md").write_text("## v2.7.3 — Roadmap activo\n", encoding="utf-8")
+    git(repo, "add", "ROADMAP.md")
+    git(repo, "commit", "-m", "roadmap")
+    assert json_snapshot(repo)["version"] == {
+        "value": "v2.7.3", "source": "ROADMAP.md", "confidence": "declared"
+    }
+    (repo / "VERSION").write_text("v9.1.4\n", encoding="utf-8")
+    assert json_snapshot(repo)["version"]["value"] == "v9.1.4"
+    (repo / "VERSION").write_text("not-a-version\n", encoding="utf-8")
+    (repo / "ROADMAP.md").write_text("# Histórico\n", encoding="utf-8")
+    assert json_snapshot(repo)["version"]["value"] is None
+
+
+def test_historical_runs_do_not_create_active_units_and_real_worktree_does(tmp_path):
+    repo = make_repo(tmp_path)
+    (repo / "ROADMAP.md").write_text(
+        "## v3.0.0 — Roadmap activo\n\n- [ ] 01-demo - Demo\n", encoding="utf-8"
+    )
+    git(repo, "add", "ROADMAP.md")
+    git(repo, "commit", "-m", "roadmap")
+    (repo / "runs" / "v2.0.0" / "01-demo").mkdir(parents=True)
+    assert json_snapshot(repo)["activeUnits"] == []
+
+    linked = tmp_path / "linked"
+    git(repo, "worktree", "add", "-b", "feature/v3.0.0-01-demo", str(linked), "develop")
+    snapshot = json_snapshot(repo)
+    assert len(snapshot["worktrees"]) == 2
+    assert snapshot["worktrees"][0]["role"] == "primary"
+    assert snapshot["activeUnits"][0]["source"] == "git-worktree"
+    git(repo, "worktree", "remove", str(linked))
+    assert json_snapshot(repo)["activeUnits"] == []
