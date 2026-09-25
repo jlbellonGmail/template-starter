@@ -106,9 +106,10 @@ function Get-StatusSnapshot {
         $trees=Get-StatusWorktrees (Invoke-StatusGit @('worktree','list','--porcelain')) $primary
         $roadmap=if(Test-Path ROADMAP.md){Get-Content ROADMAP.md -Raw -Encoding UTF8}else{""}
         $units=@($trees | Where-Object {$_.role -eq 'linked'} | ForEach-Object { Get-StatusUnitFromTree $_ $roadmap } | Where-Object { $null -ne $_ })
-        # GitHub is optional for local reentry. CI/PR/release become explicitly
-        # NOT AVAILABLE unless the caller provides an authenticated GH_TOKEN.
-        $gh=if($env:GH_TOKEN){(Get-Command gh -ErrorAction SilentlyContinue).Source}else{$null}
+        # GitHub is optional for local reentry. Use the authenticated gh CLI
+        # when it is installed; GH_TOKEN is not required because gh also
+        # supports its native keyring/browser authentication.
+        $gh=(Get-Command gh -ErrorAction SilentlyContinue).Source
         $repoInfo=Get-StatusGhJson $gh @('repo','view','--json','nameWithOwner')
         $repoName=if($repoInfo.Available){$repoInfo.Value.nameWithOwner}else{$null}
         $prInfo=Get-StatusGhJson $gh @('pr','list','--head',$branch,'--state','open','--json','number,title,url,headRefOid,baseRefName','--limit','10')
