@@ -1,0 +1,764 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
+    
+    
+      
+        <title>Operational readiness docs - Template AI-Native — Documentación</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#operational-readiness-docs" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../.." title="Template AI-Native — Documentación" class="md-header__button md-logo" aria-label="Template AI-Native — Documentación" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Template AI-Native — Documentación
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Operational readiness docs
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Cambiar a modo oscuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo oscuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Cambiar a modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Pestañas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Inicio
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../producto/contexto-producto/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Producto
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Técnica
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../usuario/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Usuario
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Template AI-Native — Documentación" class="md-nav__button md-logo" aria-label="Template AI-Native — Documentación" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Template AI-Native — Documentación
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Inicio
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../producto/contexto-producto/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Producto
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Técnica
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usuario/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Usuario
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#branch-protection-de-github-agentsmd-seccion-setup-manual" class="md-nav__link">
+    <span class="md-ellipsis">
+      Branch protection de GitHub (AGENTS.md, sección "Setup manual")
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Branch protection de GitHub (AGENTS.md, sección &#34;Setup manual&#34;)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#por-que-gh-api-en-vez-de-solo-pasos-de-ui" class="md-nav__link">
+    <span class="md-ellipsis">
+      Por qué gh api en vez de solo pasos de UI
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#por-que-develop-y-no-main" class="md-nav__link">
+    <span class="md-ellipsis">
+      Por qué develop y no main
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#por-que-enforce_admins-true-fase-clarify-resuelta" class="md-nav__link">
+    <span class="md-ellipsis">
+      Por qué enforce_admins: true — Fase CLARIFY resuelta
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#por-que-el-put-reemplaza-y-como-se-mitiga" class="md-nav__link">
+    <span class="md-ellipsis">
+      Por qué el PUT reemplaza y cómo se mitiga
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nombre-del-status-check-dependencia-con-la-feature-04" class="md-nav__link">
+    <span class="md-ellipsis">
+      Nombre del status check (dependencia con la feature 04)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#por-que-el-troubleshooting-de-edr-vive-en-circuito-agenticomd" class="md-nav__link">
+    <span class="md-ellipsis">
+      Por qué el troubleshooting de EDR vive en circuito-agentico.md
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#esto-cierra-una-deuda-documentada-previamente" class="md-nav__link">
+    <span class="md-ellipsis">
+      Esto cierra una deuda documentada previamente
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting-de-edr-docstecnicacircuito-agenticomd" class="md-nav__link">
+    <span class="md-ellipsis">
+      Troubleshooting de EDR (docs/tecnica/circuito-agentico.md)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#casos-borde-cubiertos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Casos borde cubiertos
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fuera-de-alcance-deliberado" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fuera de alcance (deliberado)
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="operational-readiness-docs">Operational readiness docs</h1>
+<p>Esta feature (<code>05-operational-readiness-docs</code>) agrega dos piezas de
+documentación operativa que no existían: un checklist ejecutable para
+configurar branch protection real de GitHub sobre <code>develop</code>, y una nota
+de troubleshooting para un bloqueo local conocido en Windows con
+EDR/antivirus agresivo. No toca código de producto (no existe), ni
+<code>scripts/*.ps1</code>, ni <code>.github/workflows/*.yml</code>. Ver
+<code>runs/v1.1.0/05-operational-readiness-docs/spec.md</code>, <code>plan.md</code> y <code>tasks.md</code> para
+el detalle completo de criterios de aceptación (<code>AC-N</code>) y tareas.</p>
+<h2 id="branch-protection-de-github-agentsmd-seccion-setup-manual">Branch protection de GitHub (<code>AGENTS.md</code>, sección "Setup manual")</h2>
+<h3 id="por-que-gh-api-en-vez-de-solo-pasos-de-ui">Por qué <code>gh api</code> en vez de solo pasos de UI</h3>
+<p>Aplicar branch protection vía
+<code>gh api --method PUT repos/{owner}/{repo}/branches/develop/protection</code>
+es una operación declarativa sobre configuración del repositorio (no
+sobre datos, código ni historial), reversible (se puede volver a aplicar
+con otro payload o desactivar desde la misma API/UI). Documentarla como
+comando ejecutable copy-paste reduce el riesgo de que un humano se salte
+un checkbox al reproducir los 4 requisitos a mano, y es reproducible entre
+repos que adopten este template. Por eso se documenta el comando <code>gh api</code>
+como vía primaria, con la alternativa manual de UI como respaldo si el
+operador no confía en el comando o <code>gh</code> no está disponible en su máquina
+(<code>gh</code> ya es herramienta local requerida, ver <code>AGENTS.md</code> sección
+"Herramientas locales requeridas" — no se agrega dependencia nueva).</p>
+<h3 id="por-que-develop-y-no-main">Por qué <code>develop</code> y no <code>main</code></h3>
+<p>El circuito automatizado (<code>ready-for-pr.ps1</code>, <code>complete-approved-pr.ps1</code>,
+los workflows de Actions) solo crea y mergea PRs contra <code>develop</code> por
+feature (<code>AGENTS.md</code>, sección "Git": "<code>main</code> — solo recibe merges desde
+<code>develop</code> vía PR, cuando se decide hacer un release"). <code>develop</code> es la
+rama donde el único HITL del circuito (la decisión <code>MERGE</code>/<code>NO MERGE</code>
+sobre la PR) es efectivo; proteger <code>main</code> es una decisión de release del
+humano, fuera de este circuito por feature, y queda fuera de alcance
+explícito de esta feature.</p>
+<h3 id="por-que-enforce_admins-true-fase-clarify-resuelta">Por qué <code>enforce_admins: true</code> — Fase CLARIFY resuelta</h3>
+<p>El ítem de <code>ROADMAP.md</code> que originó esta feature solo pedía 4 requisitos
+(PR obligatoria, status check en verde, 1 aprobación, dismiss stale
+approvals); no especificaba <code>enforce_admins</code>. El intento 1 de esta spec
+(ver <code>runs/v1.1.0/05-operational-readiness-docs/audit-1.md</code>) dejó ese valor en
+<code>false</code> como "supuesto conservador", y <code>reviewer-agent</code> lo rechazó
+correctamente: es una decisión de seguridad/permisos que admite dos
+respuestas válidas, no un detalle técnico inferible sin más de evidencia
+existente, y estaba en tensión directa con la regla dura ya documentada
+en <code>AGENTS.md</code> sección "Git" ("Nunca commitear directo a <code>develop</code>... ni
+nunca directo a <code>main</code>") — con <code>enforce_admins: false</code>, un admin sí
+podría pushear directo a <code>develop</code> saltándose PR/aprobación/CI, exactamente
+lo que esa regla prohíbe.</p>
+<p>La corrección pasó por Fase CLARIFY real con el humano (ver
+<code>spec.md</code>, sección "Clarificaciones realizadas", y
+<code>runs/v1.1.0/05-operational-readiness-docs/decision.md</code>):</p>
+<ul>
+<li><strong>Pregunta</strong>: ¿<code>enforce_admins</code> debe ser <code>true</code> o <code>false</code>?</li>
+<li><strong>Respuesta</strong>: <code>true</code>. Los administradores también quedan sujetos a la
+  protección, sin bypass, consistente con la regla dura existente de
+  <code>AGENTS.md</code>, aceptando que en un incidente operativo excepcional no
+  haya bypass automático disponible para admins.</li>
+</ul>
+<p>El payload documentado en <code>AGENTS.md</code> y el equivalente de UI ("Include
+administrators" / "Do not allow bypassing the above settings", ver más
+abajo) reflejan ese valor final.</p>
+<h3 id="por-que-el-put-reemplaza-y-como-se-mitiga">Por qué el <code>PUT</code> reemplaza y cómo se mitiga</h3>
+<p>El endpoint <code>PUT .../branches/develop/protection</code> de GitHub sobrescribe
+por completo la configuración de branch protection vigente de la rama con
+el payload enviado; no hace un merge incremental con reglas activadas
+manualmente desde la UI que no estén en ese payload (por ejemplo "require
+signed commits", "require linear history", restricciones de push por
+equipo/usuario). Si esas reglas existieran y se reaplica el <code>PUT</code>
+documentado sin incluirlas, se pierden silenciosamente. Esto quedó como
+caso borde explícito de <code>spec.md</code> (agregado en la versión 2, a pedido de
+<code>audit-1.md</code>) y como <code>AC-4</code>.</p>
+<p>Mitigación documentada en el mismo bullet de <code>AGENTS.md</code>: correr primero
+el comando <code>GET</code> de solo lectura (<code>gh api
+repos/{owner}/{repo}/branches/develop/protection</code>, sin efectos
+secundarios) para revisar qué hay configurado antes de reemplazar,
+especialmente antes de una re-ejecución para actualizar el nombre del
+status check (ver "Nombre del status check" abajo). El <code>PUT</code> sí es
+idempotente respecto de sí mismo (reenviar el mismo payload dos veces
+seguidas no falla ni duplica nada) — esa idempotencia es una propiedad
+distinta de la no-aditividad respecto de configuración externa, y el
+bullet distingue ambas explícitamente.</p>
+<h3 id="nombre-del-status-check-dependencia-con-la-feature-04">Nombre del status check (dependencia con la feature <code>04</code>)</h3>
+<p>El nombre documentado (<code>test</code>) corresponde al job único y actual de
+<code>.github/workflows/ci.yml</code> en este worktree al momento de esta feature.
+La feature <code>04-ci-wiring-product-tests</code>, en curso en paralelo, puede
+renombrar o separar ese job (por ejemplo a <code>circuit-tests</code>); si eso ya
+ocurrió al momento de aplicar este checklist, el operador debe verificar
+el nombre real vigente en la pestaña Actions de una PR reciente antes de
+correr el <code>PUT</code> (aplicar el comando con un nombre de check que ya no
+existe dejaría un status check requerido que nunca se reporta, bloqueando
+todo merge futuro contra <code>develop</code>). Esta es una dependencia declarada
+explícitamente entre features en paralelo, no una ambigüedad material
+bloqueante (confirmado en <code>audit-1.md</code> y <code>audit-2.md</code>).</p>
+<h3 id="por-que-el-troubleshooting-de-edr-vive-en-circuito-agenticomd">Por qué el troubleshooting de EDR vive en <code>circuito-agentico.md</code></h3>
+<p><code>docs/tecnica/circuito-agentico.md</code> ya es la fuente técnica del
+comportamiento de <code>local-feature-reconcile.ps1</code>/<code>ready-for-pr.ps1</code> y del
+gate post-HITL (sección "Gate post-HITL", donde ya se documenta que la
+limpieza local queda en manos del reconciliador local). Agregar un
+archivo nuevo solo para una nota de troubleshooting habría fragmentado
+documentación relacionada sin necesidad; la nueva sección se agrega al
+final de ese mismo archivo.</p>
+<h3 id="esto-cierra-una-deuda-documentada-previamente">Esto cierra una deuda documentada previamente</h3>
+<p><code>docs/tecnica/integridad-post-hitl-y-ready-for-pr.md</code> (feature <code>02</code>) dejó
+explícitamente fuera de alcance "configurar branch protection / rulesets
+reales de GitHub" y documentó una "Recomendación operativa (no
+automatizada)" pidiendo activar en <code>develop</code> protección equivalente a
+"Require approval of the most recent reviewable push". Esta feature
+atiende esa deuda con el checklist de los 4 requisitos clásicos del ítem
+<code>05</code> (que no es exactamente "most recent reviewable push", una capacidad
+más nueva de GitHub Rulesets, pero cubre el mismo objetivo de fondo: que
+el único HITL del circuito sea efectivo y no se pueda saltear).</p>
+<h2 id="troubleshooting-de-edr-docstecnicacircuito-agenticomd">Troubleshooting de EDR (<code>docs/tecnica/circuito-agentico.md</code>)</h2>
+<p>El contenido completo (síntoma, causa, alcance, solución) vive en la
+sección "Troubleshooting: EDR/antivirus agresivo bloquea el reconciliador
+local (Windows)" de ese archivo. Puntos de diseño relevantes:</p>
+<ul>
+<li>El alcance se documenta explícitamente como <strong>exclusivamente local</strong>:
+  no corrompe git, no afecta CI, gate post-HITL ni el cierre remoto de
+  <code>ROADMAP.md</code>, porque esos tres corren en GitHub Actions, independientes
+  del proceso PowerShell local afectado.</li>
+<li>La solución (<code>git worktree remove --force</code> + <code>git worktree add</code>) es
+  segura incluso si el lock file del reconciliador
+  (<code>&lt;git-common-dir&gt;/feature-reconcilers/</code>) sigue "vivo" pero apuntando a
+  un proceso muerto o bloqueado: ese estado vive fuera de cualquier
+  worktree (confirmado leyendo <code>Get-FeatureStateDir</code> en
+  <code>scripts/feature-contract.ps1</code>), así que removerlo con <code>--force</code> no lo
+  corrompe ni requiere matar el proceso a mano primero.</li>
+<li>Se advierte explícitamente que <code>--force</code> descarta cualquier cambio sin
+  commitear en ese worktree, con la recomendación de revisar <code>git status</code>
+  ahí antes de forzar, si el worktree sigue siendo accesible.</li>
+</ul>
+<h2 id="casos-borde-cubiertos">Casos borde cubiertos</h2>
+<ul>
+<li><strong>Repo sin remoto de GitHub configurado</strong>: el comando <code>gh api</code> falla si
+  no hay remoto GitHub válido; el bullet lo advierte, coherente con el
+  bullet "Remoto GitHub" ya existente en la misma sección.</li>
+<li><strong>Usuario sin permisos de administrador</strong>: el endpoint exige permisos
+  admin; <code>gh api</code> devuelve 403/404. Advertido explícitamente, sin
+  prometer que el comando funciona con cualquier nivel de permiso.</li>
+<li><strong>Nombre de status check desactualizado</strong>: ver "Nombre del status
+  check" arriba.</li>
+<li><strong>Reemplazo total de configuración existente vs. re-ejecución
+  idempotente</strong>: ver "Por qué el <code>PUT</code> reemplaza" arriba — son dos
+  propiedades distintas, documentadas por separado.</li>
+<li><strong>JSON del payload inválido por error de tipeo</strong>: el bullet documenta
+  el paso <code>$branchProtection | ConvertFrom-Json | Out-Null</code> como
+  validación local sin credenciales, antes de invocar la API real.</li>
+<li><strong>Lock file del reconciliador apuntando a un proceso muerto/bloqueado
+  por el EDR</strong>: cubierto arriba, en "Troubleshooting de EDR".</li>
+<li><strong>Cambios sin commitear en el worktree bloqueado</strong>: cubierto arriba,
+  advertencia explícita antes de recomendar <code>--force</code>.</li>
+<li><strong>Accesibilidad/responsive</strong>: no aplica — ambos artefactos son
+  documentación Markdown en texto plano, sin UI ni componente visual
+  nuevo.</li>
+</ul>
+<h2 id="fuera-de-alcance-deliberado">Fuera de alcance (deliberado)</h2>
+<ul>
+<li>Ejecutar el comando <code>gh api</code> contra un repositorio GitHub real: es un
+  paso manual del humano, no una automatización del circuito agéntico.</li>
+<li>Configurar branch protection sobre <code>main</code>.</li>
+<li>Modificar <code>.github/workflows/ci.yml</code> o cualquier otro workflow.</li>
+<li>Escribir o modificar <code>scripts/local-feature-reconcile.ps1</code> o
+  <code>scripts/ready-for-pr.ps1</code>: el troubleshooting de EDR es un
+  procedimiento manual, no un cambio de comportamiento de esos scripts.</li>
+<li>Un mecanismo automático que detecte o repare bloqueos de EDR.</li>
+</ul>
+<p>Ver <code>runs/v1.1.0/05-operational-readiness-docs/spec.md</code> (sección "Explícitamente
+NO incluye") para el detalle completo.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.instant", "navigation.tracking", "navigation.sections", "navigation.prune", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+    
+  </body>
+</html>
