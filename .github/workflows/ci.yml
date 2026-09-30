@@ -75,7 +75,7 @@ jobs:
   # Desktop, especifico de Windows. Sin continue-on-error: si esta suite
   # falla, el job queda rojo y bloquea el merge.
   local-reconciler-tests:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
