@@ -1,0 +1,18 @@
+name: ai-native L3
+
+# C6 EVIDENCE (ai-native M5, P41): cross-repository workflow_call. Throwaway PR, never merged.
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  l3:
+    permissions:
+      contents: read
+    uses: jlbellonGmail/ai-native/.github/workflows/l3-consumer.yml@99f23f440544bb22bac7179d34b7d5c4e6a1143e
+    with:
+      # evidence run: the pinned release (alpha.1) predates the L3 module, so the gate code comes from main
+      platform-ref: 99f23f440544bb22bac7179d34b7d5c4e6a1143e
