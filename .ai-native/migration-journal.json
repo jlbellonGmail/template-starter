@@ -3,9 +3,9 @@
   "baseCommit": "5d26ec9d7cba8cc3043700275bcb8b1de6a42291",
   "platform": {
     "repo": "github:jlbellonGmail/ai-native",
-    "version": "v3.0.0-rc.1",
-    "commit": "0ffe68ddbfb9e8a096ee4fdaf57cd5cdd2fa5d6c",
-    "digest": "sha256:53f8cb56b348077ec7f92ef184c83c7f99b47d094287f868426b04171350b10f"
+    "version": "v3.0.0-rc.2",
+    "commit": "51ef1859fbb39af5f0c82547597faa54aa945457",
+    "digest": "sha256:55b9589f7f78f7f0acd15ccffb2b297fe199889206a8f04123cfc45e266f6e0f"
   },
   "retired": [
     {
@@ -490,11 +490,11 @@
     },
     {
       "path": ".github/workflows/ai-native.yml",
-      "sha256": "sha256:95e11ecaa656da45683d231759ffbe72fb9eda9ed08d5d19c20da5c3953a4a2f"
+      "sha256": "sha256:a97766c8846d9860c6959285aac836a15387bd2ab97032427f0b3580f12a1510"
     },
     {
       "path": "ai-native.lock.json",
-      "sha256": "sha256:a4fd919d2a10e7df6749384f48e995e929c5d23f8e277c65228d7aed3802d806"
+      "sha256": "sha256:4e285dd913b349e2387fed12faad2d9574c7db21cb2e4b67d6706c4f2b881e27"
     },
     {
       "path": ".claude/agents/builder.md",
